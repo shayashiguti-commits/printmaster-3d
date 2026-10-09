@@ -1,0 +1,8 @@
+{
+  "name": "PrintMaster 3D",
+  "description": "Sistema especialista em diagnóstico de impressão 3D, atlas do Bambu Studio e preparação inteligente de modelos.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

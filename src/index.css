@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+/* =========================================================================
+   Theme Palettes & Customizations
+   ========================================================================= */
+
+/* 1. Bambu Studio Official Dark */
+.theme-bambu-dark {
+  --theme-accent: #00ae42;
+  --theme-accent-rgb: 0, 174, 66;
+  --theme-accent-light: #22c55e;
+}
+.theme-bambu-dark .accent-theme-text {
+  color: #00ae42;
+}
+.theme-bambu-dark .accent-theme-bg {
+  background-color: #00ae42;
+}
+.theme-bambu-dark .accent-theme-border {
+  border-color: rgba(0, 174, 66, 0.4);
+}
+
+/* 2. OrcaSlicer Neon Cyan */
+.theme-orca-dark {
+  --theme-accent: #06b6d4;
+  --theme-accent-rgb: 6, 182, 212;
+  --theme-accent-light: #22d3ee;
+}
+.theme-orca-dark .accent-theme-text {
+  color: #06b6d4;
+}
+.theme-orca-dark .accent-theme-bg {
+  background-color: #06b6d4;
+}
+.theme-orca-dark .accent-theme-border {
+  border-color: rgba(6, 182, 212, 0.4);
+}
+
+/* 3. PrintMaster Pro Slate Dark */
+.theme-slate-dark {
+  --theme-accent: #3b82f6;
+  --theme-accent-rgb: 59, 130, 246;
+  --theme-accent-light: #60a5fa;
+}
+.theme-slate-dark .accent-theme-text {
+  color: #3b82f6;
+}
+.theme-slate-dark .accent-theme-bg {
+  background-color: #3b82f6;
+}
+.theme-slate-dark .accent-theme-border {
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+/* 4. Bambu Studio Claro (Light Mode) */
+.theme-studio-light {
+  --theme-accent: #00ae42;
+  --theme-accent-rgb: 0, 174, 66;
+  --theme-accent-light: #16a34a;
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+.theme-studio-light .bg-slate-950 {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+.theme-studio-light .bg-slate-900 {
+  background-color: #ffffff !important;
+  color: #1e293b !important;
+}
+.theme-studio-light .bg-slate-900\/90 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  color: #1e293b !important;
+}
+.theme-studio-light .bg-slate-900\/60,
+.theme-studio-light .bg-slate-900\/80,
+.theme-studio-light .bg-slate-900\/40 {
+  background-color: #ffffff !important;
+  color: #1e293b !important;
+}
+.theme-studio-light .bg-slate-850,
+.theme-studio-light .bg-slate-800 {
+  background-color: #f1f5f9 !important;
+  color: #334155 !important;
+}
+.theme-studio-light .bg-slate-800\/80,
+.theme-studio-light .bg-slate-800\/60,
+.theme-studio-light .bg-slate-800\/40 {
+  background-color: #f8fafc !important;
+  color: #334155 !important;
+}
+.theme-studio-light .text-white {
+  color: #0f172a !important;
+}
+.theme-studio-light .text-slate-100,
+.theme-studio-light .text-slate-200 {
+  color: #1e293b !important;
+}
+.theme-studio-light .text-slate-300 {
+  color: #334155 !important;
+}
+.theme-studio-light .text-slate-400 {
+  color: #64748b !important;
+}
+.theme-studio-light .border-slate-800,
+.theme-studio-light .border-slate-700 {
+  border-color: #e2e8f0 !important;
+}
+.theme-studio-light aside {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  color: #1e293b !important;
+}
+
+/* 5. Industrial High Contrast (Yellow / Black) */
+.theme-high-contrast {
+  --theme-accent: #eab308;
+  --theme-accent-rgb: 234, 179, 8;
+  --theme-accent-light: #facc15;
+  background-color: #000000 !important;
+}
+.theme-high-contrast .bg-slate-950 {
+  background-color: #000000 !important;
+}
+.theme-high-contrast .bg-slate-900 {
+  background-color: #0a0a0a !important;
+}
+.theme-high-contrast .border-slate-800,
+.theme-high-contrast .border-slate-700 {
+  border-color: #383838 !important;
+}
+.theme-high-contrast .text-white {
+  color: #ffffff !important;
+}
+.theme-high-contrast .accent-theme-text {
+  color: #eab308;
+}
+.theme-high-contrast .accent-theme-bg {
+  background-color: #eab308;
+}
+

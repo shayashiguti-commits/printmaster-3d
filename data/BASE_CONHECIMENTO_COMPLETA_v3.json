@@ -1,0 +1,2178 @@
+{
+  "schema_version": "1.0.0",
+  "created_at": "2026-10-08",
+  "language": "pt-BR",
+  "title": "PrintMaster 3D - Base de Conhecimento Inicial",
+  "disclaimer": "Base conceitual inicial, não corresponde a catálogo 100% verificado de campos do Bambu Studio nem a perfis validados. Sem valores universais de parâmetros.",
+  "source_document": "Sistema FAQ Impressão 3D.pdf (16 paginas)",
+  "knowledge_sources": [
+    {
+      "id": "src-origin",
+      "title": "Sistema FAQ Impressão 3D - documento original, 16 p.",
+      "kind": "user_pdf",
+      "url": null,
+      "authority": "base_conceitual_historica",
+      "version": "2026-10-08",
+      "review_status": "original_nao_atualizado"
+    },
+    {
+      "id": "src-bambu-readme",
+      "title": "Bambu Studio - repositório oficial",
+      "kind": "official_code",
+      "url": "https://github.com/bambulab/BambuStudio",
+      "authority": "primary",
+      "version": "master_nao_fixado",
+      "review_status": "consultado"
+    },
+    {
+      "id": "src-bambu-config",
+      "title": "Bambu Studio - PrintConfig.cpp",
+      "kind": "official_code",
+      "url": "https://github.com/bambulab/BambuStudio/blob/master/src/libslic3r/PrintConfig.cpp",
+      "authority": "primary",
+      "version": "master_nao_fixado",
+      "review_status": "consultado"
+    },
+    {
+      "id": "src-bambu-profiles",
+      "title": "Bambu Lab perfis oficiais no Bambu Studio",
+      "kind": "official_profile",
+      "url": "https://github.com/bambulab/BambuStudio/blob/master/resources/profiles/BBL/process/fdm_process_common.json",
+      "authority": "primary",
+      "version": "master_nao_fixado",
+      "review_status": "consultado"
+    },
+    {
+      "id": "src-bambu-wiki",
+      "title": "Bambu Studio Wiki",
+      "kind": "official_docs",
+      "url": "https://github.com/bambulab/BambuStudio/wiki",
+      "authority": "primary",
+      "version": "varia",
+      "review_status": "consultado"
+    },
+    {
+      "id": "src-ellis",
+      "title": "Ellis Print Tuning Guide",
+      "kind": "third_party_technical",
+      "url": "https://ellis3dp.com/Print-Tuning-Guide/",
+      "authority": "secondary",
+      "version": "nao_fixado",
+      "review_status": "presente_no_pdf"
+    },
+    {
+      "id": "src-teachingtech",
+      "title": "Teaching Tech 3D Printer Calibration",
+      "kind": "third_party_technical",
+      "url": "https://teachingtechyt.github.io/calibration.html",
+      "authority": "secondary",
+      "version": "nao_fixado",
+      "review_status": "presente_no_pdf"
+    }
+  ],
+  "printer_models": [
+    {
+      "id": "printer-bambu-lab-a2l",
+      "manufacturer": "Bambu Lab",
+      "name": "A2L",
+      "capabilities": {
+        "max_bed_temp": 100,
+        "enclosure": false,
+        "ams_support": true,
+        "recommended_nozzles": [
+          "0.2",
+          "0.4",
+          "0.6",
+          "0.8"
+        ]
+      },
+      "review_status": "requires_versioned_official_spec",
+      "notes": "Não inferir compatibilidade, temperatura, câmara ou calibração pelo nome do modelo.",
+      "source_ids": [
+        "src-bambu-profiles"
+      ]
+    },
+    {
+      "id": "printer-bambu-lab-a1",
+      "manufacturer": "Bambu Lab",
+      "name": "A1",
+      "capabilities": {
+        "build_volume": "256x256x256mm",
+        "max_bed_temp": 100,
+        "enclosure": false,
+        "ams_support": true,
+        "ams_type": "AMS lite",
+        "recommended_nozzles": [
+          "0.2",
+          "0.4",
+          "0.6",
+          "0.8"
+        ]
+      },
+      "review_status": "verified_reference",
+      "notes": "Mesa aberta tipo bedslinger; atentar para correntes de ar com filamentos de alta contração.",
+      "source_ids": [
+        "src-bambu-profiles",
+        "src-bambu-wiki"
+      ]
+    },
+    {
+      "id": "printer-bambu-lab-a1-mini",
+      "manufacturer": "Bambu Lab",
+      "name": "A1 mini",
+      "capabilities": {
+        "build_volume": "180x180x180mm",
+        "max_bed_temp": 80,
+        "enclosure": false,
+        "ams_support": true,
+        "ams_type": "AMS lite",
+        "recommended_nozzles": [
+          "0.2",
+          "0.4",
+          "0.6",
+          "0.8"
+        ]
+      },
+      "review_status": "verified_reference",
+      "notes": "Volume compacto de 180mm; calibração automática de fluxo na ponta do bico.",
+      "source_ids": [
+        "src-bambu-profiles",
+        "src-bambu-wiki"
+      ]
+    },
+    {
+      "id": "printer-bambu-lab-p1s",
+      "manufacturer": "Bambu Lab",
+      "name": "P1S",
+      "capabilities": {
+        "build_volume": "256x256x256mm",
+        "max_bed_temp": 100,
+        "enclosure": true,
+        "chamber_fan": true,
+        "ams_support": true,
+        "recommended_nozzles": [
+          "0.2",
+          "0.4",
+          "0.6",
+          "0.8"
+        ]
+      },
+      "review_status": "verified_reference",
+      "notes": "Câmara fechada ideal para ABS/ASA; abrir porta/tampa superior ao imprimir PLA para evitar heat creep.",
+      "source_ids": [
+        "src-bambu-profiles",
+        "src-bambu-wiki"
+      ]
+    },
+    {
+      "id": "printer-bambu-lab-x1-carbon",
+      "manufacturer": "Bambu Lab",
+      "name": "X1 Carbon",
+      "capabilities": {
+        "build_volume": "256x256x256mm",
+        "max_bed_temp": 110,
+        "enclosure": true,
+        "micro_lidar": true,
+        "hardened_nozzle": true,
+        "ams_support": true,
+        "recommended_nozzles": [
+          "0.2",
+          "0.4",
+          "0.6",
+          "0.8"
+        ]
+      },
+      "review_status": "verified_reference",
+      "notes": "Bico de aço temperado de fábrica; sensor LiDAR para inspeção de primeira camada e calibração de PA.",
+      "source_ids": [
+        "src-bambu-profiles",
+        "src-bambu-wiki"
+      ]
+    },
+    {
+      "id": "printer-bambu-lab-h2s",
+      "manufacturer": "Bambu Lab",
+      "name": "H2S",
+      "capabilities": {},
+      "review_status": "requires_versioned_official_spec",
+      "notes": "Não inferir compatibilidade, temperatura, câmara ou calibração pelo nome do modelo.",
+      "source_ids": [
+        "src-bambu-profiles"
+      ]
+    },
+    {
+      "id": "printer-bambu-lab-h2d",
+      "manufacturer": "Bambu Lab",
+      "name": "H2D",
+      "capabilities": {},
+      "review_status": "requires_versioned_official_spec",
+      "notes": "Não inferir compatibilidade, temperatura, câmara ou calibração pelo nome do modelo.",
+      "source_ids": [
+        "src-bambu-profiles"
+      ]
+    }
+  ],
+  "filament_types": [
+    {
+      "id": "mat-pla",
+      "name": "PLA",
+      "printer_compatible": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "temperature_range": "190-230 °C (conforme fabricante)",
+      "drying_settings": "45-55 °C por 4-6h se úmido",
+      "notes": "Material biodegradável à base de amido, baixa contração, ideal para peças visuais e estéticas.",
+      "review_status": "material_type_only"
+    },
+    {
+      "id": "mat-pla-silk",
+      "name": "PLA Silk",
+      "printer_compatible": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "temperature_range": "205-230 °C",
+      "drying_settings": "45-50 °C por 4h",
+      "notes": "Aditivos de brilho reduzem adesão intercamadas; requer velocidade menor nas paredes externas.",
+      "review_status": "material_type_only"
+    },
+    {
+      "id": "mat-petg",
+      "name": "PETG",
+      "printer_compatible": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "temperature_range": "230-260 °C",
+      "drying_settings": "60-65 °C por 6-8h",
+      "notes": "Boa resistência a impacto e umidade; propenso a fios (stringing) se não estiver perfeitamente seco.",
+      "review_status": "material_type_only"
+    },
+    {
+      "id": "mat-petg-cf",
+      "name": "PETG-CF",
+      "printer_compatible": [
+        "P1S",
+        "X1 Carbon"
+      ],
+      "temperature_range": "235-265 °C",
+      "drying_settings": "65 °C por 8h",
+      "notes": "Fibras de carbono requerem bico endurecido (aço temperado). Excelente acabamento fosco.",
+      "review_status": "material_type_only"
+    },
+    {
+      "id": "mat-abs",
+      "name": "ABS",
+      "printer_compatible": [
+        "P1S",
+        "X1 Carbon"
+      ],
+      "temperature_range": "240-270 °C",
+      "drying_settings": "70-80 °C por 8h",
+      "notes": "Alta contração térmica e emanação de COVs; obrigatório impressora com câmara fechada e ventilação adequada.",
+      "review_status": "material_type_only"
+    },
+    {
+      "id": "mat-asa",
+      "name": "ASA",
+      "printer_compatible": [
+        "P1S",
+        "X1 Carbon"
+      ],
+      "temperature_range": "240-270 °C",
+      "drying_settings": "70-80 °C por 8h",
+      "notes": "Similar ao ABS mas com resistência UV para áreas externas; exige câmara aquecida e placa lisa ou PEI texturizada limpa.",
+      "review_status": "material_type_only"
+    },
+    {
+      "id": "mat-tpu",
+      "name": "TPU",
+      "printer_compatible": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "temperature_range": "210-240 °C",
+      "drying_settings": "55-60 °C por 6h",
+      "notes": "Filamento flexível; não recomendado para carregar via AMS comum (usar carretel externo). Velocidade reduzida.",
+      "review_status": "material_type_only"
+    },
+    {
+      "id": "mat-pa",
+      "name": "PA (Nylon)",
+      "printer_compatible": [
+        "P1S",
+        "X1 Carbon"
+      ],
+      "temperature_range": "260-290 °C",
+      "drying_settings": "80 °C por 12h",
+      "notes": "Extremamente higroscópico; absorve umidade do ar em horas. Exige secagem rigorosa.",
+      "review_status": "material_type_only"
+    },
+    {
+      "id": "mat-pa-cf",
+      "name": "PA-CF",
+      "printer_compatible": [
+        "X1 Carbon",
+        "P1S com upgrade de bico"
+      ],
+      "temperature_range": "270-300 °C",
+      "drying_settings": "80-90 °C por 10-12h",
+      "notes": "Alta rigidez mecânica; desgasta bicos de latão em minutos. Usar bico de aço temperado.",
+      "review_status": "material_type_only"
+    },
+    {
+      "id": "mat-pc",
+      "name": "PC (Policarbonato)",
+      "printer_compatible": [
+        "X1 Carbon"
+      ],
+      "temperature_range": "260-290 °C",
+      "drying_settings": "80 °C por 8h",
+      "notes": "Exige alta temperatura de mesa (100-110 °C) e câmara fechada; alta resistência mecânica e térmica.",
+      "review_status": "material_type_only"
+    },
+    {
+      "id": "mat-pva",
+      "name": "PVA",
+      "printer_compatible": [
+        "A1",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "temperature_range": "190-210 °C",
+      "drying_settings": "45 °C por 8h",
+      "notes": "Suporte solúvel em água para geometrias complexas; sensível a calor excessivo no hotend.",
+      "review_status": "material_type_only"
+    },
+    {
+      "id": "mat-hips",
+      "name": "HIPS",
+      "printer_compatible": [
+        "P1S",
+        "X1 Carbon"
+      ],
+      "temperature_range": "230-250 °C",
+      "drying_settings": "60 °C por 6h",
+      "notes": "Solúvel em D-Limoneno, frequentemente usado como suporte para ABS.",
+      "review_status": "material_type_only"
+    }
+  ],
+  "parameters": [
+    {
+      "id": "param-layer-height",
+      "name_pt": "Layer height / Altura da camada",
+      "name_en": "Layer height",
+      "config_key": "layer_height",
+      "category": "Quality",
+      "description": "Resolução vertical e quantidade de camadas; reduzir melhora detalhes em planos inclinados e aumenta o tempo total.",
+      "unit": "mm",
+      "control_type": "number",
+      "menu_path": "Process > Quality > Layer height",
+      "menu_path_validated": true,
+      "slicer_version": "v01.09+",
+      "compatible_printers": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "compatibility_status": "verified",
+      "parameter_status": "active",
+      "risk_level": "low",
+      "source_ids": [
+        "src-bambu-config",
+        "src-bambu-profiles"
+      ],
+      "notes": "Geralmente varia entre 25% e 75% do diâmetro do bico (ex: 0.08mm a 0.28mm em bico 0.4mm)."
+    },
+    {
+      "id": "param-initial-layer-height",
+      "name_pt": "Initial layer height / Altura da primeira camada",
+      "name_en": "Initial layer height",
+      "config_key": "initial_layer_print_height",
+      "category": "Quality",
+      "description": "Espessura da primeira camada depositada na mesa; afeta diretamente a adesão e compensação de desníveis.",
+      "unit": "mm",
+      "control_type": "number",
+      "menu_path": "Process > Quality > First layer > Initial layer height",
+      "menu_path_validated": true,
+      "slicer_version": "v01.09+",
+      "compatible_printers": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "compatibility_status": "verified",
+      "parameter_status": "active",
+      "risk_level": "low",
+      "source_ids": [
+        "src-bambu-config",
+        "src-bambu-profiles"
+      ],
+      "notes": "Normalmente configurado entre 0.20mm e 0.25mm para garantir boa área de contato."
+    },
+    {
+      "id": "param-adaptive-layer-height",
+      "name_pt": "Adaptive layer height / Altura adaptativa de camada",
+      "name_en": "Adaptive layer height",
+      "config_key": "adaptive_layer_height",
+      "category": "Quality",
+      "description": "Ajusta dinamicamente a espessura da camada de acordo com a curvatura da superfície.",
+      "unit": "toggle/tool",
+      "control_type": "tool_button",
+      "menu_path": "Top Toolbar > Variable Layer Height icon",
+      "menu_path_validated": true,
+      "slicer_version": "v01.09+",
+      "compatible_printers": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "compatibility_status": "verified",
+      "parameter_status": "active",
+      "risk_level": "low",
+      "source_ids": [
+        "src-bambu-wiki"
+      ],
+      "notes": "Reduz camadas em topos suaves e aumenta em paredes verticais para economizar tempo sem perder qualidade."
+    },
+    {
+      "id": "param-line-width",
+      "name_pt": "Line width / Largura da linha",
+      "name_en": "Line width",
+      "config_key": "line_width",
+      "category": "Quality",
+      "description": "Largura padrão dos cordões extrudados; influencia resistência mecânica e precisão de cantos.",
+      "unit": "mm",
+      "control_type": "number",
+      "menu_path": "Process > Quality > Line width",
+      "menu_path_validated": true,
+      "slicer_version": "v01.09+",
+      "compatible_printers": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "compatibility_status": "verified",
+      "parameter_status": "active",
+      "risk_level": "low",
+      "source_ids": [
+        "src-bambu-config"
+      ],
+      "notes": "Em bico 0.4mm, o padrão costuma ser 0.42mm a 0.45mm."
+    },
+    {
+      "id": "param-outer-wall-line-width",
+      "name_pt": "Outer wall line width / Largura da parede externa",
+      "name_en": "Outer wall line width",
+      "config_key": "outer_wall_line_width",
+      "category": "Quality",
+      "description": "Largura das paredes externas visíveis; valores menores preservam detalhes finos.",
+      "unit": "mm",
+      "control_type": "number",
+      "menu_path": "Process > Quality > Line width > Outer wall",
+      "menu_path_validated": true,
+      "slicer_version": "v01.09+",
+      "compatible_printers": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "compatibility_status": "verified",
+      "parameter_status": "active",
+      "risk_level": "low",
+      "source_ids": [
+        "src-bambu-config"
+      ]
+    },
+    {
+      "id": "param-inner-wall-line-width",
+      "name_pt": "Inner wall line width / Largura da parede interna",
+      "name_en": "Inner wall line width",
+      "config_key": "inner_wall_line_width",
+      "category": "Quality",
+      "description": "Largura de paredes internas estruturais.",
+      "unit": "mm",
+      "control_type": "number",
+      "menu_path": "Process > Quality > Line width > Inner wall",
+      "menu_path_validated": true,
+      "slicer_version": "v01.09+",
+      "compatible_printers": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "compatibility_status": "verified",
+      "parameter_status": "active",
+      "risk_level": "low",
+      "source_ids": [
+        "src-bambu-config"
+      ]
+    },
+    {
+      "id": "param-seam-position",
+      "name_pt": "Seam position / Posição da costura",
+      "name_en": "Seam position",
+      "config_key": "seam_position",
+      "category": "Quality",
+      "description": "Estratégia de localização do início e fim de cada perímetro onde o bico inicia a camada.",
+      "unit": "enum",
+      "control_type": "select",
+      "menu_path": "Process > Quality > Seam > Seam position",
+      "menu_path_validated": true,
+      "slicer_version": "v01.09+",
+      "compatible_printers": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "compatibility_status": "verified",
+      "parameter_status": "active",
+      "risk_level": "low",
+      "source_ids": [
+        "src-bambu-config"
+      ],
+      "notes": "Opções: Aligned (alinhada), Nearest (mais próxima), Back (traseira), Random (aleatória)."
+    },
+    {
+      "id": "param-scarf-seam",
+      "name_pt": "Scarf seam / Costura chanfrada",
+      "name_en": "Scarf joint seam",
+      "config_key": "scarf_joint_seam",
+      "category": "Quality",
+      "description": "Transição gradual de fluxo na emenda da parede em formato de cunha, ocultando a costura.",
+      "unit": "enum/toggle",
+      "control_type": "select",
+      "menu_path": "Process > Quality > Seam > Scarf joint seam",
+      "menu_path_validated": true,
+      "slicer_version": "v01.09+",
+      "compatible_printers": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "compatibility_status": "verified",
+      "parameter_status": "active",
+      "risk_level": "low",
+      "source_ids": [
+        "src-bambu-wiki"
+      ],
+      "notes": "Introduzido no Bambu Studio v1.9. Reduz significativamente marcas visíveis de zits em formas circulares."
+    },
+    {
+      "id": "param-wall-generator",
+      "name_pt": "Wall generator / Gerador de paredes (Arachne)",
+      "name_en": "Wall generator",
+      "config_key": "wall_generator",
+      "category": "Quality",
+      "description": "Algoritmo gerador de perímetros: Classic (largura fixa) ou Arachne (largura dinâmica adaptativa).",
+      "unit": "enum",
+      "control_type": "select",
+      "menu_path": "Process > Quality > Walls > Wall generator",
+      "menu_path_validated": true,
+      "slicer_version": "v01.09+",
+      "compatible_printers": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "compatibility_status": "verified",
+      "parameter_status": "active",
+      "risk_level": "low",
+      "source_ids": [
+        "src-bambu-config"
+      ],
+      "notes": "Arachne melhora o preenchimento de cantos agudos e letras finas, evitando vazios internos."
+    },
+    {
+      "id": "param-elephant-foot-compensation",
+      "name_pt": "Elephant foot compensation / Compensação de pata de elefante",
+      "name_en": "Elephant foot compensation",
+      "config_key": "elefant_foot_compensation",
+      "category": "Quality",
+      "description": "Recuo para dentro no contorno da primeira camada para compensar o esmagamento físico contra a mesa.",
+      "unit": "mm",
+      "control_type": "number",
+      "menu_path": "Process > Quality > Precision > Elephant foot compensation",
+      "menu_path_validated": true,
+      "slicer_version": "v01.09+",
+      "compatible_printers": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "compatibility_status": "verified",
+      "parameter_status": "active",
+      "risk_level": "low",
+      "source_ids": [
+        "src-bambu-config"
+      ],
+      "notes": "Padrão em torno de 0.15mm a 0.20mm. Não usar para mascarar bico muito colado."
+    },
+    {
+      "id": "param-ironing",
+      "name_pt": "Ironing / Alisamento térmico",
+      "name_en": "Ironing",
+      "config_key": "ironing_type",
+      "category": "Quality",
+      "description": "Passada lenta com bico quente e microfluxo sobre as superfícies superiores planas para acabamento espelhado.",
+      "unit": "enum",
+      "control_type": "select",
+      "menu_path": "Process > Quality > Ironing > Enable ironing",
+      "menu_path_validated": true,
+      "slicer_version": "v01.09+",
+      "compatible_printers": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "compatibility_status": "verified",
+      "parameter_status": "active",
+      "risk_level": "low",
+      "source_ids": [
+        "src-bambu-config"
+      ],
+      "notes": "Aumenta o tempo de impressão; excelente para plaquinhas, topos planos e miniaturas."
+    },
+    {
+      "id": "param-wall-loops",
+      "name_pt": "Wall loops / Perímetros de parede",
+      "name_en": "Wall loops",
+      "config_key": "wall_loops",
+      "category": "Strength",
+      "description": "Número de cordões que formam a casca externa da peça. Principal parâmetro para rigidez mecânica e tração.",
+      "unit": "contagem",
+      "control_type": "integer",
+      "menu_path": "Process > Strength > Walls > Wall loops",
+      "menu_path_validated": true,
+      "slicer_version": "v01.09+",
+      "compatible_printers": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "compatibility_status": "verified",
+      "parameter_status": "active",
+      "risk_level": "low",
+      "source_ids": [
+        "src-bambu-config"
+      ],
+      "notes": "Para peças mecânicas, 4 ou mais perímetros aumentam mais a resistência que apenas subir infill."
+    },
+    {
+      "id": "param-top-shell-layers",
+      "name_pt": "Top shell layers / Camadas sólidas superiores",
+      "name_en": "Top shell layers",
+      "config_key": "top_shell_layers",
+      "category": "Strength",
+      "description": "Quantidade de camadas sólidas no fechamento superior para evitar buracos (pillowing).",
+      "unit": "contagem",
+      "control_type": "integer",
+      "menu_path": "Process > Strength > Shells > Top shell layers",
+      "menu_path_validated": true,
+      "slicer_version": "v01.09+",
+      "compatible_printers": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "compatibility_status": "verified",
+      "parameter_status": "active",
+      "risk_level": "low",
+      "source_ids": [
+        "src-bambu-config"
+      ],
+      "notes": "Recomendado 4 a 6 camadas para garantir teto 100% selado."
+    },
+    {
+      "id": "param-bottom-shell-layers",
+      "name_pt": "Bottom shell layers / Camadas sólidas inferiores",
+      "name_en": "Bottom shell layers",
+      "config_key": "bottom_shell_layers",
+      "category": "Strength",
+      "description": "Quantidade de camadas sólidas na base da peça.",
+      "unit": "contagem",
+      "control_type": "integer",
+      "menu_path": "Process > Strength > Shells > Bottom shell layers",
+      "menu_path_validated": true,
+      "slicer_version": "v01.09+",
+      "compatible_printers": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "compatibility_status": "verified",
+      "parameter_status": "active",
+      "risk_level": "low",
+      "source_ids": [
+        "src-bambu-config"
+      ]
+    },
+    {
+      "id": "param-sparse-infill-density",
+      "name_pt": "Sparse infill density / Densidade de preenchimento",
+      "name_en": "Sparse infill density",
+      "config_key": "sparse_infill_density",
+      "category": "Strength",
+      "description": "Porcentagem volumétrica de material no interior da peça. Impacta massa, tempo e sustentação de tetos.",
+      "unit": "%",
+      "control_type": "percentage",
+      "menu_path": "Process > Strength > Infill > Sparse infill density",
+      "menu_path_validated": true,
+      "slicer_version": "v01.09+",
+      "compatible_printers": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "compatibility_status": "verified",
+      "parameter_status": "active",
+      "risk_level": "low",
+      "source_ids": [
+        "src-bambu-config"
+      ],
+      "notes": "Geralmente 15% a 25% é suficiente para a maioria dos casos de uso."
+    },
+    {
+      "id": "param-sparse-infill-pattern",
+      "name_pt": "Sparse infill pattern / Padrão de preenchimento",
+      "name_en": "Sparse infill pattern",
+      "config_key": "sparse_infill_pattern",
+      "category": "Strength",
+      "description": "Geometria tridimensional do núcleo (ex: Gyroid, Grid, Honeycomb, Tri-Hexagonal, Cross Hatch).",
+      "unit": "enum",
+      "control_type": "select",
+      "menu_path": "Process > Strength > Infill > Sparse infill pattern",
+      "menu_path_validated": true,
+      "slicer_version": "v01.09+",
+      "compatible_printers": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "compatibility_status": "verified",
+      "parameter_status": "active",
+      "risk_level": "low",
+      "source_ids": [
+        "src-bambu-config"
+      ],
+      "notes": "Gyroid e Cross Hatch não cruzam linhas na mesma camada, prevenindo raspagem do bico e ressonância."
+    },
+    {
+      "id": "param-initial-layer-speed",
+      "name_pt": "Initial layer speed / Velocidade da primeira camada",
+      "name_en": "Initial layer speed",
+      "config_key": "initial_layer_speed",
+      "category": "Speed",
+      "description": "Velocidade na primeira camada. Valores baixos permitem que o filamento assente e cole firmemente na mesa.",
+      "unit": "mm/s",
+      "control_type": "number",
+      "menu_path": "Process > Speed > First layer > Initial layer speed",
+      "menu_path_validated": true,
+      "slicer_version": "v01.09+",
+      "compatible_printers": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "compatibility_status": "verified",
+      "parameter_status": "active",
+      "risk_level": "low",
+      "source_ids": [
+        "src-bambu-config"
+      ],
+      "notes": "Recomendado entre 20mm/s e 50mm/s dependendo do filamento e placa."
+    },
+    {
+      "id": "param-outer-wall-speed",
+      "name_pt": "Outer wall speed / Velocidade da parede externa",
+      "name_en": "Outer wall speed",
+      "config_key": "outer_wall_speed",
+      "category": "Speed",
+      "description": "Velocidade da camada mais externa visível. Reduzir minimiza vibração e ghosting/ringing.",
+      "unit": "mm/s",
+      "control_type": "number",
+      "menu_path": "Process > Speed > Other layers > Outer wall",
+      "menu_path_validated": true,
+      "slicer_version": "v01.09+",
+      "compatible_printers": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "compatibility_status": "verified",
+      "parameter_status": "active",
+      "risk_level": "low",
+      "source_ids": [
+        "src-bambu-config"
+      ]
+    },
+    {
+      "id": "param-travel-speed",
+      "name_pt": "Travel speed / Velocidade de deslocamento",
+      "name_en": "Travel speed",
+      "config_key": "travel_speed",
+      "category": "Speed",
+      "description": "Velocidade da cabeça de impressão quando NÃO está extrudando material.",
+      "unit": "mm/s",
+      "control_type": "number",
+      "menu_path": "Process > Speed > Travel > Travel speed",
+      "menu_path_validated": true,
+      "slicer_version": "v01.09+",
+      "compatible_printers": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "compatibility_status": "verified",
+      "parameter_status": "active",
+      "risk_level": "low",
+      "source_ids": [
+        "src-bambu-config"
+      ],
+      "notes": "Pode chegar a 500mm/s nas máquinas Bambu Lab CoreXY."
+    },
+    {
+      "id": "param-acceleration",
+      "name_pt": "Acceleration / Aceleração padrão",
+      "name_en": "Default acceleration",
+      "config_key": "default_acceleration",
+      "category": "Speed",
+      "description": "Taxa de variação de velocidade nos eixos de movimento.",
+      "unit": "mm/s²",
+      "control_type": "number",
+      "menu_path": "Process > Speed > Acceleration > Normal printing",
+      "menu_path_validated": true,
+      "slicer_version": "v01.09+",
+      "compatible_printers": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "compatibility_status": "verified",
+      "parameter_status": "active",
+      "risk_level": "low",
+      "source_ids": [
+        "src-bambu-config"
+      ]
+    },
+    {
+      "id": "param-enable-support",
+      "name_pt": "Enable support / Ativar suporte",
+      "name_en": "Enable support",
+      "config_key": "enable_support",
+      "category": "Support",
+      "description": "Ativa a geração automática de estruturas de apoio para saliências e pontes.",
+      "unit": "boolean",
+      "control_type": "checkbox",
+      "menu_path": "Process > Support > Enable support",
+      "menu_path_validated": true,
+      "slicer_version": "v01.09+",
+      "compatible_printers": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "compatibility_status": "verified",
+      "parameter_status": "active",
+      "risk_level": "low",
+      "source_ids": [
+        "src-bambu-config"
+      ]
+    },
+    {
+      "id": "param-support-type",
+      "name_pt": "Support type / Tipo de suporte (Tree vs Normal)",
+      "name_en": "Support type",
+      "config_key": "support_type",
+      "category": "Support",
+      "description": "Estrutura do suporte: Normal (colunar tradicional) ou Tree (suporte em árvore / orgânico).",
+      "unit": "enum",
+      "control_type": "select",
+      "menu_path": "Process > Support > Type",
+      "menu_path_validated": true,
+      "slicer_version": "v01.09+",
+      "compatible_printers": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "compatibility_status": "verified",
+      "parameter_status": "active",
+      "risk_level": "low",
+      "source_ids": [
+        "src-bambu-config"
+      ],
+      "notes": "Suporte tipo Tree gasta menos filamento e é muito mais fácil de remover em modelos orgânicos e miniaturas."
+    },
+    {
+      "id": "param-support-top-z-distance",
+      "name_pt": "Support top Z distance / Distância vertical Z do suporte",
+      "name_en": "Top Z distance",
+      "config_key": "support_top_z_distance",
+      "category": "Support",
+      "description": "Folga de ar entre o topo do suporte e a peça. Define a facilidade de remoção versus acabamento.",
+      "unit": "mm",
+      "control_type": "number",
+      "menu_path": "Process > Support > Distance > Top Z distance",
+      "menu_path_validated": true,
+      "slicer_version": "v01.09+",
+      "compatible_printers": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "compatibility_status": "verified",
+      "parameter_status": "active",
+      "risk_level": "low",
+      "source_ids": [
+        "src-bambu-config"
+      ],
+      "notes": "Valores típicos: 0.16mm a 0.24mm (aproximadamente 1 altura de camada). 0mm se usar material solúvel ou interface dedicada como PETG para PLA."
+    },
+    {
+      "id": "param-support-object-xy-distance",
+      "name_pt": "Support/object XY distance / Distância lateral XY do suporte",
+      "name_en": "Support/object XY distance",
+      "config_key": "support_object_xy_distance",
+      "category": "Support",
+      "description": "Separação horizontal entre os suportes e as paredes da peça.",
+      "unit": "mm",
+      "control_type": "number",
+      "menu_path": "Process > Support > Distance > Support/object XY distance",
+      "menu_path_validated": true,
+      "slicer_version": "v01.09+",
+      "compatible_printers": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "compatibility_status": "verified",
+      "parameter_status": "active",
+      "risk_level": "low",
+      "source_ids": [
+        "src-bambu-config"
+      ],
+      "notes": "Aumentar quando o suporte estiver colando nas laterais das paredes verticais."
+    },
+    {
+      "id": "param-brim-type",
+      "name_pt": "Brim type / Tipo de aba (Brim)",
+      "name_en": "Brim type",
+      "config_key": "brim_type",
+      "category": "Others",
+      "description": "Aba externa adicionada na base da peça para aumentar a área de adesão e combater empenamento (warping).",
+      "unit": "enum",
+      "control_type": "select",
+      "menu_path": "Process > Others > Bed adhesion > Brim type",
+      "menu_path_validated": true,
+      "slicer_version": "v01.09+",
+      "compatible_printers": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "compatibility_status": "verified",
+      "parameter_status": "active",
+      "risk_level": "low",
+      "source_ids": [
+        "src-bambu-config"
+      ],
+      "notes": "Opções: Auto, Outer brim only, Inner brim only, Outer and inner brim, No brim."
+    },
+    {
+      "id": "param-brim-width",
+      "name_pt": "Brim width / Largura da aba",
+      "name_en": "Brim width",
+      "config_key": "brim_width",
+      "category": "Others",
+      "description": "Largura da aba de ancoragem na mesa.",
+      "unit": "mm",
+      "control_type": "number",
+      "menu_path": "Process > Others > Bed adhesion > Brim width",
+      "menu_path_validated": true,
+      "slicer_version": "v01.09+",
+      "compatible_printers": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "compatibility_status": "verified",
+      "parameter_status": "active",
+      "risk_level": "low",
+      "source_ids": [
+        "src-bambu-config"
+      ],
+      "notes": "5mm a 10mm é comum para peças que sofrem tração de cantos."
+    },
+    {
+      "id": "param-flow-ratio",
+      "name_pt": "Flow ratio / Multiplicador de fluxo",
+      "name_en": "Flow ratio",
+      "config_key": "flow_ratio",
+      "category": "Filament",
+      "description": "Multiplicador de vazão do filamento no extrusor. Calibrado para garantir dimensões exatas e topos selados sem sobre-extrusão.",
+      "unit": "fator",
+      "control_type": "number",
+      "menu_path": "Filament > Settings > Flow ratio",
+      "menu_path_validated": true,
+      "slicer_version": "v01.09+",
+      "compatible_printers": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "compatibility_status": "verified",
+      "parameter_status": "active",
+      "risk_level": "medium",
+      "source_ids": [
+        "src-bambu-config",
+        "src-ellis"
+      ],
+      "notes": "Típico entre 0.95 e 1.02. Não alterar sem teste de calibração de fluxo de parede dupla."
+    },
+    {
+      "id": "param-max-volumetric-speed",
+      "name_pt": "Max volumetric speed / Vazão volumétrica máxima",
+      "name_en": "Max volumetric speed",
+      "config_key": "filament_max_volumetric_speed",
+      "category": "Filament",
+      "description": "Teto físico de material fundido por segundo que o hotend consegue empurrar sem subextrusão ou perda de temperatura.",
+      "unit": "mm³/s",
+      "control_type": "number",
+      "menu_path": "Filament > Settings > Max volumetric speed",
+      "menu_path_validated": true,
+      "slicer_version": "v01.09+",
+      "compatible_printers": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "compatibility_status": "verified",
+      "parameter_status": "active",
+      "risk_level": "medium",
+      "source_ids": [
+        "src-bambu-config",
+        "src-bambu-wiki"
+      ],
+      "notes": "PLA padrão Bambu ronda 18-22 mm³/s; TPU varia de 3 a 5 mm³/s."
+    },
+    {
+      "id": "param-nozzle-temperature",
+      "name_pt": "Nozzle temperature / Temperatura do bico",
+      "name_en": "Nozzle temperature",
+      "config_key": "nozzle_temperature",
+      "category": "Filament",
+      "description": "Temperatura de fusão contínua durante a impressão do corpo da peça.",
+      "unit": "°C",
+      "control_type": "number",
+      "menu_path": "Filament > Settings > Temperature > Nozzle",
+      "menu_path_validated": true,
+      "slicer_version": "v01.09+",
+      "compatible_printers": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "compatibility_status": "verified",
+      "parameter_status": "active",
+      "risk_level": "medium",
+      "source_ids": [
+        "src-bambu-config"
+      ],
+      "notes": "Varia por filamento e fabricante. Sempre checar rótulo do carretel."
+    },
+    {
+      "id": "param-bed-temperature",
+      "name_pt": "Bed temperature / Temperatura da mesa",
+      "name_en": "Bed temperature",
+      "config_key": "bed_temperature",
+      "category": "Filament",
+      "description": "Temperatura de aquecimento da mesa de impressão por tipo de placa.",
+      "unit": "°C",
+      "control_type": "number",
+      "menu_path": "Filament > Settings > Temperature > Bed",
+      "menu_path_validated": true,
+      "slicer_version": "v01.09+",
+      "compatible_printers": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "compatibility_status": "verified",
+      "parameter_status": "active",
+      "risk_level": "medium",
+      "source_ids": [
+        "src-bambu-config"
+      ],
+      "notes": "PLA: 55-65°C; PETG: 70-80°C; ABS/ASA: 90-100°C."
+    },
+    {
+      "id": "param-pressure-advance",
+      "name_pt": "Pressure advance / Calibração dinâmica de pressão (K)",
+      "name_en": "Pressure advance (K value)",
+      "config_key": "pressure_advance",
+      "category": "Filament",
+      "description": "Compensa o atraso elástico do filamento na desaceleração e aceleração de cantos.",
+      "unit": "fator K",
+      "control_type": "number",
+      "menu_path": "Calibration tab > Flow Dynamics / Device management",
+      "menu_path_validated": true,
+      "slicer_version": "v01.09+",
+      "compatible_printers": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "compatibility_status": "verified",
+      "parameter_status": "active",
+      "risk_level": "medium",
+      "source_ids": [
+        "src-bambu-wiki",
+        "src-ellis"
+      ],
+      "notes": "Valores típicos em direct drive Bambu Lab variam entre 0.015 e 0.045."
+    },
+    {
+      "id": "param-retraction-length",
+      "name_pt": "Retraction length / Comprimento de retração",
+      "name_en": "Retraction length",
+      "config_key": "retraction_length",
+      "category": "Filament",
+      "description": "Distância que o filamento é puxado para trás pelo extrusor antes de um deslocamento vazio para estancar vazamento.",
+      "unit": "mm",
+      "control_type": "number",
+      "menu_path": "Filament > Settings > Setting overrides > Retraction length",
+      "menu_path_validated": true,
+      "slicer_version": "v01.09+",
+      "compatible_printers": [
+        "A1",
+        "A1 mini",
+        "P1S",
+        "X1 Carbon"
+      ],
+      "compatibility_status": "verified",
+      "parameter_status": "active",
+      "risk_level": "medium",
+      "source_ids": [
+        "src-bambu-config"
+      ],
+      "notes": "Em direct drive Bambu Lab, valores costumam ser entre 0.6mm e 1.2mm. Não usar valores de Bowden (4-6mm) pois causa entupimento térmico."
+    }
+  ],
+  "failure_types": [
+    {
+      "id": "F01",
+      "technology": "FDM",
+      "name": "Cantos levantados / Warping",
+      "diagnostic_hypotheses": [
+        "Mesa com gordura/sujeira (perda de adesão)",
+        "Gradiente térmico elevado ou corrente de ar frio",
+        "Geometria longa com alta contração térmica interna",
+        "Temperatura da mesa incompatível com o material e placa"
+      ],
+      "first_safe_check": "Lavar a placa com água morna e detergente neutro; evitar tocar com os dedos. Conferir se há portas/janelas abertas gerando correntes de ar.",
+      "status": "knowledge_seed_review_needed",
+      "source_ids": [
+        "src-origin",
+        "src-bambu-wiki"
+      ],
+      "risk": "normal",
+      "tags": [
+        "warping",
+        "adesao",
+        "primeira-camada",
+        "cantos"
+      ]
+    },
+    {
+      "id": "F02",
+      "technology": "FDM",
+      "name": "Primeira camada não fixa",
+      "diagnostic_hypotheses": [
+        "Placa física diferente da placa selecionada no slicer (ex: PEI texturizada vs lisa)",
+        "Contaminação por óleo corporal na placa",
+        "Bico muito distante ou offset de calibração sujo",
+        "Temperatura inicial muito baixa"
+      ],
+      "first_safe_check": "Conferir o tipo de placa selecionado no Bambu Studio no canto superior esquerdo e limpar a placa.",
+      "status": "knowledge_seed_review_needed",
+      "source_ids": [
+        "src-origin"
+      ],
+      "risk": "normal",
+      "tags": [
+        "primeira-camada",
+        "adesao",
+        "placa"
+      ]
+    },
+    {
+      "id": "F03",
+      "technology": "FDM",
+      "name": "Pata de elefante",
+      "diagnostic_hypotheses": [
+        "Esmagamento mecânico excessivo na primeira camada",
+        "Mesa excessivamente quente amolecendo as primeiras camadas",
+        "Compensação de pata de elefante (Elephant foot compensation) desativada"
+      ],
+      "first_safe_check": "Medir com paquímetro se o alargamento ocorre apenas nos primeiros 0.5-1.0mm da base.",
+      "status": "knowledge_seed_review_needed",
+      "source_ids": [
+        "src-origin"
+      ],
+      "risk": "normal",
+      "tags": [
+        "pata-de-elefante",
+        "dimensional",
+        "base"
+      ]
+    },
+    {
+      "id": "F04",
+      "technology": "FDM",
+      "name": "Subextrusão",
+      "diagnostic_hypotheses": [
+        "Obstrução parcial do bico (entupimento)",
+        "Filamento úmido gerando vapor e microbolhas na câmara de fusão",
+        "Vazão volumétrica máxima (Max volumetric speed) configurada acima do limite do hotend",
+        "Engrenagens do extrusor sujas ou escorregando"
+      ],
+      "first_safe_check": "Comparar regiões da peça impressas em baixa velocidade versus alta velocidade; testar extrusão manual no ar a 220°C observando se o fio desce reto.",
+      "status": "knowledge_seed_review_needed",
+      "source_ids": [
+        "src-origin"
+      ],
+      "risk": "normal",
+      "tags": [
+        "subextrusao",
+        "falhas-camada",
+        "entupimento"
+      ]
+    },
+    {
+      "id": "F05",
+      "technology": "FDM",
+      "name": "Sobre-extrusão",
+      "diagnostic_hypotheses": [
+        "Multiplicador de fluxo (Flow ratio) alto para o diâmetro real do filamento",
+        "Diâmetro de filamento configurado incorretamente",
+        "Sobreposição preenchimento/parede muito alta"
+      ],
+      "first_safe_check": "Observar se as superfícies superiores planas têm relevo áspero e plástico empilhado nas bordas.",
+      "status": "knowledge_seed_review_needed",
+      "source_ids": [
+        "src-origin"
+      ],
+      "risk": "normal",
+      "tags": [
+        "sobre-extrusao",
+        "fluxo",
+        "acabamento"
+      ]
+    },
+    {
+      "id": "F06",
+      "technology": "FDM",
+      "name": "Stringing / Teias e fios",
+      "diagnostic_hypotheses": [
+        "Filamento úmido (principal causa em PETG, TPU e Nylon)",
+        "Temperatura do bico excessivamente alta para o filamento",
+        "Distância de retração insuficiente ou desgaste do hotend",
+        "Z-hop excessivo ou desnecessário"
+      ],
+      "first_safe_check": "Secar o carretel em desidratador/estufa conforme recomendação do fabricante e testar torre de retração padrão.",
+      "status": "knowledge_seed_review_needed",
+      "source_ids": [
+        "src-origin",
+        "src-ellis"
+      ],
+      "risk": "normal",
+      "tags": [
+        "stringing",
+        "teias",
+        "umidade",
+        "retracao"
+      ]
+    },
+    {
+      "id": "F07",
+      "technology": "FDM",
+      "name": "Blobs/zits e costura aparente",
+      "diagnostic_hypotheses": [
+        "Costura (seam) distribuída aleatoriamente em superfícies curvas",
+        "Calibração de dinâmica de pressão (Pressure Advance / K) descalibrada",
+        "Umidade no filamento gerando estalos no bico"
+      ],
+      "first_safe_check": "Verificar na prévia do Bambu Studio (Color scheme: Seam) se os pontos brancos coincidem com os calombos visíveis.",
+      "status": "knowledge_seed_review_needed",
+      "source_ids": [
+        "src-origin"
+      ],
+      "risk": "normal",
+      "tags": [
+        "blobs",
+        "zits",
+        "costura",
+        "seam"
+      ]
+    },
+    {
+      "id": "F08",
+      "technology": "FDM",
+      "name": "Ghosting / Ringing (Ondulações após cantos)",
+      "diagnostic_hypotheses": [
+        "Ressonância mecânica por correias soltas ou superfície da impressora instável",
+        "Aceleração excessiva na parede externa",
+        "Compensação de vibração (Input Shaper) descalibrada"
+      ],
+      "first_safe_check": "Executar a rotina oficial de calibração automática de vibrações da impressora e checar tensão das correias.",
+      "status": "knowledge_seed_review_needed",
+      "source_ids": [
+        "src-origin"
+      ],
+      "risk": "normal",
+      "tags": [
+        "ghosting",
+        "ringing",
+        "vibracao",
+        "aceleracao"
+      ]
+    },
+    {
+      "id": "F09",
+      "technology": "FDM",
+      "name": "Z-banding / Linhas horizontais periódicas",
+      "diagnostic_hypotheses": [
+        "Fuso trapezoidal Z desalinhado, empenado ou com sujeira nas esferas/roscas",
+        "Flutuação cíclica de temperatura da mesa ou bico (oscilação PID)",
+        "Variação de diâmetro no filamento"
+      ],
+      "first_safe_check": "Medir a distância entre as linhas salientes com paquímetro e comparar com o passo do fuso Z da impressora.",
+      "status": "knowledge_seed_review_needed",
+      "source_ids": [
+        "src-origin"
+      ],
+      "risk": "normal",
+      "tags": [
+        "z-banding",
+        "eixo-z",
+        "camadas"
+      ]
+    },
+    {
+      "id": "F10",
+      "technology": "FDM",
+      "name": "Layer shifting (Deslocamento de camadas)",
+      "diagnostic_hypotheses": [
+        "Colisão mecânica do bico com peça solta, suporte que tombou ou infill tipo Grid",
+        "Tensão excessiva ou polia frouxa no motor de passo",
+        "Aceleração além do limite físico do motor"
+      ],
+      "first_safe_check": "Identificar se houve colisão audível ou suporte caído; trocar padrão de preenchimento para Gyroid.",
+      "status": "knowledge_seed_review_needed",
+      "source_ids": [
+        "src-origin"
+      ],
+      "risk": "normal",
+      "tags": [
+        "layer-shifting",
+        "colisao",
+        "perda-passo"
+      ]
+    },
+    {
+      "id": "F11",
+      "technology": "FDM",
+      "name": "Delaminação / Separação entre camadas",
+      "diagnostic_hypotheses": [
+        "Fusão térmica insuficiente por temperatura baixa ou velocidade excessiva",
+        "Ventoinha de resfriamento da peça (part cooling) em 100% em materiais sensíveis como ABS/ASA/PETG",
+        "Correntes de ar frio na câmara de impressão"
+      ],
+      "first_safe_check": "Verificar se a peça quebra facilmente ao longo dos planos horizontais das camadas; subir temperatura do bico em 5-10°C.",
+      "status": "knowledge_seed_review_needed",
+      "source_ids": [
+        "src-origin"
+      ],
+      "risk": "normal",
+      "tags": [
+        "delaminacao",
+        "resistencia",
+        "fusao"
+      ]
+    },
+    {
+      "id": "F12",
+      "technology": "FDM",
+      "name": "Ponte caída / Bridging flácido",
+      "diagnostic_hypotheses": [
+        "Vão livre muito longo sem suporte",
+        "Ventoinha de resfriamento insuficiente durante o movimento de ponte",
+        "Velocidade de ponte muito alta ou fluxo muito denso"
+      ],
+      "first_safe_check": "Inspecionar a extensão da ponte no Preview e conferir se o modo Bridge Speed e Bridge Fan estão ativos.",
+      "status": "knowledge_seed_review_needed",
+      "source_ids": [
+        "src-origin"
+      ],
+      "risk": "normal",
+      "tags": [
+        "ponte",
+        "bridging",
+        "resfriamento"
+      ]
+    },
+    {
+      "id": "F13",
+      "technology": "FDM",
+      "name": "Suporte difícil de remover / Grudado na peça",
+      "diagnostic_hypotheses": [
+        "Distância vertical Z (Top Z distance) muito pequena",
+        "Camada de interface densa sem folga",
+        "Temperatura do bico muito alta fundindo o suporte na peça"
+      ],
+      "first_safe_check": "Aumentar Top Z distance em 0.04mm (1 passo de camada) ou usar material de interface diferente (ex: PETG como interface para PLA).",
+      "status": "knowledge_seed_review_needed",
+      "source_ids": [
+        "src-origin"
+      ],
+      "risk": "normal",
+      "tags": [
+        "suporte",
+        "remocao",
+        "interface"
+      ]
+    },
+    {
+      "id": "F14",
+      "technology": "FDM",
+      "name": "Topo com buracos / Pillowing",
+      "diagnostic_hypotheses": [
+        "Poucas camadas sólidas de topo (Top shell layers)",
+        "Preenchimento interno muito esparso (<10%) sem suportar o fechamento",
+        "Ventilação de topo fraca"
+      ],
+      "first_safe_check": "Adicionar pelo menos 2 camadas extras de Top shell layers no Bambu Studio.",
+      "status": "knowledge_seed_review_needed",
+      "source_ids": [
+        "src-origin"
+      ],
+      "risk": "normal",
+      "tags": [
+        "pillowing",
+        "topo",
+        "buracos"
+      ]
+    },
+    {
+      "id": "F15",
+      "technology": "FDM",
+      "name": "Furos e encaixes fora de medida",
+      "diagnostic_hypotheses": [
+        "Contração radial natural dos perímetros circulares (efeito cordão esticado)",
+        "Compensação X-Y hole compensation não ajustada",
+        "Sobre-extrusão geral reduzindo diâmetro interno de furos"
+      ],
+      "first_safe_check": "Medir com calibre em furo teste conhecido; se faltar 0.2mm, testar X-Y hole compensation = 0.1mm a 0.2mm.",
+      "status": "knowledge_seed_review_needed",
+      "source_ids": [
+        "src-origin"
+      ],
+      "risk": "normal",
+      "tags": [
+        "dimensional",
+        "tolerancia",
+        "furos",
+        "encaixes"
+      ]
+    },
+    {
+      "id": "F16",
+      "technology": "FDM",
+      "name": "Superfície áspera em balanços (Overhang)",
+      "diagnostic_hypotheses": [
+        "Ângulo de inclinação superior a 60° sem suporte",
+        "Resfriamento de balanço insuficiente",
+        "Altura de camada muito alta para a inclinação"
+      ],
+      "first_safe_check": "Reduzir velocidade de balanço (Overhang speed) e testar altura de camada adaptativa na região inclinada.",
+      "status": "knowledge_seed_review_needed",
+      "source_ids": [
+        "src-origin"
+      ],
+      "risk": "normal",
+      "tags": [
+        "overhang",
+        "balanco",
+        "inclinacao"
+      ]
+    },
+    {
+      "id": "F17",
+      "technology": "FDM",
+      "name": "Bico colide ou arrasta sobre a peça",
+      "diagnostic_hypotheses": [
+        "Preenchimento tipo Grid cujas linhas se sobrepõem na mesma camada",
+        "Empenamento (warping) levantando as pontas da peça de encontro ao bico",
+        "Sobre-extrusão acumulando excesso de material vertical"
+      ],
+      "first_safe_check": "Mudar padrão de preenchimento para Gyroid e inspecionar se a peça está descolando da mesa.",
+      "status": "knowledge_seed_review_needed",
+      "source_ids": [
+        "src-origin"
+      ],
+      "risk": "normal",
+      "tags": [
+        "colisao",
+        "arrasto",
+        "bico",
+        "infill"
+      ]
+    },
+    {
+      "id": "F18",
+      "technology": "FDM",
+      "name": "Heat creep / Entupimento tardio após minutos de impressão",
+      "diagnostic_hypotheses": [
+        "Calor subindo para a zona fria do hotend por ventilação insuficiente do dissipador",
+        "Imprimir PLA com a tampa superior e porta fechadas na P1S/X1C em dias quentes",
+        "Retrações muito longas e frequentes puxando plástico derretido para a garganta"
+      ],
+      "first_safe_check": "Abrir a tampa superior e a porta frontal da impressora ao imprimir PLA/PETG para manter a câmara abaixo de 35°C.",
+      "status": "knowledge_seed_review_needed",
+      "source_ids": [
+        "src-origin",
+        "src-bambu-wiki"
+      ],
+      "risk": "caution",
+      "tags": [
+        "heat-creep",
+        "entupimento",
+        "temperatura",
+        "camara"
+      ]
+    },
+    {
+      "id": "F19",
+      "technology": "FDM",
+      "name": "Impressão multicolorida suja / Sangramento de cores",
+      "diagnostic_hypotheses": [
+        "Volume de purga (Flush volume) insuficiente na transição de cor escura para clara",
+        "Detritos acumulados na calha de purga (poop chute)",
+        "Bico com vazamento externo ao redor da capa de silicone"
+      ],
+      "first_safe_check": "Recalcular a matriz de Flush Volumes no Bambu Studio, especialmente ao trocar de preto/vermelho para branco.",
+      "status": "knowledge_seed_review_needed",
+      "source_ids": [
+        "src-origin"
+      ],
+      "risk": "normal",
+      "tags": [
+        "multicolor",
+        "ams",
+        "purga",
+        "flush"
+      ]
+    },
+    {
+      "id": "F20",
+      "technology": "FDM",
+      "name": "Falta de adesão à torre de purga",
+      "diagnostic_hypotheses": [
+        "Base da torre de purga muito estreita",
+        "Mesa contaminada no local da torre",
+        "Primeira camada da torre impressa muito rápida"
+      ],
+      "first_safe_check": "Ativar Brim na torre de purga e limpar a área da placa onde ela se localiza.",
+      "status": "knowledge_seed_review_needed",
+      "source_ids": [
+        "src-origin"
+      ],
+      "risk": "normal",
+      "tags": [
+        "prime-tower",
+        "torre-purga",
+        "ams"
+      ]
+    },
+    {
+      "id": "F21",
+      "technology": "FDM",
+      "name": "Superfície com marcas de suporte",
+      "diagnostic_hypotheses": [
+        "Orientação da peça colocou face visível diretamente sobre o suporte",
+        "Densidade da interface insuficiente para sustentar os cordões",
+        "Falta de material de interface dedicado"
+      ],
+      "first_safe_check": "Rotacionar a peça para que as faces estéticas fiquem viradas para cima; usar interface de PETG em peça de PLA.",
+      "status": "knowledge_seed_review_needed",
+      "source_ids": [
+        "src-origin"
+      ],
+      "risk": "normal",
+      "tags": [
+        "suporte",
+        "acabamento",
+        "orientacao"
+      ]
+    },
+    {
+      "id": "F22",
+      "technology": "FDM",
+      "name": "Filamento mastigado no extrusor",
+      "diagnostic_hypotheses": [
+        "Entupimento ou bico frio impedindo o avanço do filamento",
+        "Tensão excessiva do carretel no suporte ou tubo PTFE dobrado",
+        "Retrações excessivas no mesmo trecho desgastando o fio"
+      ],
+      "first_safe_check": "Desligar a máquina, desobstruir o caminho do filamento com cuidado e verificar se o carretel gira livremente.",
+      "status": "knowledge_seed_review_needed",
+      "source_ids": [
+        "src-origin"
+      ],
+      "risk": "normal",
+      "tags": [
+        "extrusor",
+        "filamento",
+        "obstrucao"
+      ]
+    },
+    {
+      "id": "F23",
+      "technology": "FDM",
+      "name": "Topo arqueado ou derretido em miniaturas",
+      "diagnostic_hypotheses": [
+        "Tempo por camada extremamente curto sem resfriamento suficiente do plástico anterior",
+        "Temperatura do bico muito alta para detalhes pequenos",
+        "Falta de limite de velocidade mínima por camada"
+      ],
+      "first_safe_check": "Ativar 'Slow down for cooling' e imprimir 2 ou 3 cópias juntas para dar tempo das camadas esfriarem.",
+      "status": "knowledge_seed_review_needed",
+      "source_ids": [
+        "src-origin"
+      ],
+      "risk": "normal",
+      "tags": [
+        "miniaturas",
+        "resfriamento",
+        "detalhes"
+      ]
+    },
+    {
+      "id": "F24",
+      "technology": "FDM",
+      "name": "Vibração ou ruído mecânico anormal",
+      "diagnostic_hypotheses": [
+        "Objeto estranho ou filamento preso nas guias lineares ou correias",
+        "Falta de lubrificação recomendada nos eixos Y/Z",
+        "Ventoinha do hotend ou de refrigeração com aleta danificada"
+      ],
+      "first_safe_check": "Pausar imediatamente a impressão e inspecionar visualmente os trilhos e ventiladores sem tocar em partes elétricas energizadas.",
+      "status": "knowledge_seed_review_needed",
+      "source_ids": [
+        "src-origin"
+      ],
+      "risk": "caution",
+      "tags": [
+        "mecanica",
+        "ruido",
+        "seguranca",
+        "manutencao"
+      ]
+    },
+    {
+      "id": "S01",
+      "technology": "SLA/MSLA",
+      "name": "Delaminação SLA",
+      "diagnostic_hypotheses": [
+        "Tempo de exposição normal insuficiente para curar as camadas",
+        "Força de separação (peel force) excessiva",
+        "Suportes finos ou em quantidade insuficiente"
+      ],
+      "first_safe_check": "Avaliar suportes, tempo de exposição da resina e garantir temperatura ambiente acima de 20°C.",
+      "status": "derived_origin_review_needed",
+      "source_ids": [
+        "src-origin"
+      ],
+      "risk": "caution",
+      "tags": [
+        "sla",
+        "resina",
+        "delaminacao"
+      ]
+    },
+    {
+      "id": "S02",
+      "technology": "SLA/MSLA",
+      "name": "Cupping blowout (Sucção em cavidade fechada)",
+      "diagnostic_hypotheses": [
+        "Cavidade oca sem furos de respiro gerando efeito de ventosa no fundo do tanque",
+        "Orientação desfavorável da peça em relação ao filme FEP"
+      ],
+      "first_safe_check": "Adicionar furos de drenagem/respiro próximos à base no slicer de resina e inclinar a peça entre 15° e 45°.",
+      "status": "derived_origin_review_needed",
+      "source_ids": [
+        "src-origin"
+      ],
+      "risk": "caution",
+      "tags": [
+        "sla",
+        "cupping",
+        "succao",
+        "furos"
+      ]
+    },
+    {
+      "id": "S03",
+      "technology": "SLA/MSLA",
+      "name": "Ragging / Rashing (Películas soltas de resina)",
+      "diagnostic_hypotheses": [
+        "Filme FEP turvo ou arranhado dispersando luz UV",
+        "Resina contaminada com partículas pré-curadas",
+        "Luz parasita na sala de impressão"
+      ],
+      "first_safe_check": "Filtrar a resina com malha apropriada, limpar o tanque com álcool isopropílico e usar luvas de nitrila.",
+      "status": "derived_origin_review_needed",
+      "source_ids": [
+        "src-origin"
+      ],
+      "risk": "caution",
+      "tags": [
+        "sla",
+        "fep",
+        "resina",
+        "contaminacao"
+      ]
+    },
+    {
+      "id": "S04",
+      "technology": "SLA/MSLA",
+      "name": "Blooming (Aparência esponjosa em resina)",
+      "diagnostic_hypotheses": [
+        "Tempo de repouso (Light-off delay / Rest time) muito curto antes da cura da camada",
+        "Resina em movimento turbulento durante a exposição"
+      ],
+      "first_safe_check": "Aumentar o tempo de repouso (Rest time after retract) para 1-2 segundos para a resina assentar.",
+      "status": "derived_origin_review_needed",
+      "source_ids": [
+        "src-origin"
+      ],
+      "risk": "caution",
+      "tags": [
+        "sla",
+        "blooming",
+        "repouso"
+      ]
+    }
+  ],
+  "diagnostic_tests": [
+    {
+      "id": "T01",
+      "name": "Verificação de primeira camada",
+      "technology": "FDM",
+      "objective": "Checar tipo de placa selecionado, limpeza com água/sabão neutro e altura do cordão inicial sem tocar nas configurações avançadas.",
+      "procedure_steps": [
+        "Confirmar correspondência física da placa (PEI texturizada vs Lisa).",
+        "Lavar a placa com água morna e sabão neutro sem usar panos gordurosos.",
+        "Imprimir cupom de teste de 1 camada (quadrado de 50x50x0.2mm).",
+        "Verificar se o filme é uniforme e não solta facilmente."
+      ],
+      "contraindications": [
+        "Não utilizar acetona em placas PEI texturizadas.",
+        "Não nivelar mesa quente sem aguardar estabilização térmica."
+      ],
+      "pass_conditions": "Primeira camada contínua, sem frestas entre linhas e sem cantos curvados.",
+      "status": "verified_workflow"
+    },
+    {
+      "id": "T02",
+      "name": "Calibração de fluxo (Flow Rate)",
+      "technology": "FDM",
+      "objective": "Ajustar o multiplicador de vazão do filamento para garantir espessura de parede e fechamento perfeito.",
+      "procedure_steps": [
+        "Acessar aba Calibration > Flow Rate no Bambu Studio ou imprimir cubo de parede dupla.",
+        "Medir as paredes com paquímetro digital aferido.",
+        "Ajustar Flow Ratio proporcionalmente se houver desvio."
+      ],
+      "contraindications": [
+        "Não calibrar fluxo com bico entupido ou filamento úmido."
+      ],
+      "pass_conditions": "Topos lisos ao toque e espessura medida dentro de ±0.02mm do alvo.",
+      "status": "verified_workflow"
+    },
+    {
+      "id": "T03",
+      "name": "Dinâmica de fluxo / Pressure Advance (K)",
+      "technology": "FDM",
+      "objective": "Calibrar fator de pressão para evitar sobre-extrusão e falhas na desaceleração de cantos.",
+      "procedure_steps": [
+        "Acessar Calibration > Flow Dynamics.",
+        "Executar padrão de linhas ou padrão PA.",
+        "Escolher a linha mais homogênea sem afinamento ou calombo."
+      ],
+      "contraindications": [
+        "Aplicar somente para bico e filamento específicos calibrados."
+      ],
+      "pass_conditions": "Cantos retos e uniformes a qualquer velocidade.",
+      "status": "verified_workflow"
+    },
+    {
+      "id": "T04",
+      "name": "Torre de temperatura",
+      "technology": "FDM",
+      "objective": "Determinar a faixa térmica ideal de brilho, adesão intercamadas e ausência de fios.",
+      "procedure_steps": [
+        "Fatiar torre padrão com degraus de 5°C dentro da faixa do fabricante.",
+        "Avaliar acabamento e realizar teste de ruptura manual nas divisórias."
+      ],
+      "contraindications": [
+        "Nunca exceder a temperatura máxima segura do hotend (300°C)."
+      ],
+      "pass_conditions": "Melhor equilíbrio entre adesão mecânica e mínimo stringing.",
+      "status": "verified_workflow"
+    },
+    {
+      "id": "T05",
+      "name": "Vazão volumétrica máxima",
+      "technology": "FDM",
+      "objective": "Descobrir o limite real em mm³/s suportado pelo conjunto de hotend e filamento.",
+      "procedure_steps": [
+        "Imprimir torre de fluxo volumétrico com incremento gradual de velocidade.",
+        "Inspecionar a altura em que a peça começa a apresentar acabamento fosco ou subextrusão."
+      ],
+      "contraindications": [
+        "Não forçar velocidade que gere perda de passos no extrusor."
+      ],
+      "pass_conditions": "Valor limite determinado com margem de segurança de 15%.",
+      "status": "verified_workflow"
+    },
+    {
+      "id": "T06",
+      "name": "Validação de ponte (Bridging)",
+      "technology": "FDM",
+      "objective": "Testar vãos suspensos de 10mm a 50mm e calibrar ventilação e velocidade de ponte.",
+      "procedure_steps": [
+        "Fatiar modelo de pontes progressivas.",
+        "Observar deflexão dos fios inferiores."
+      ],
+      "contraindications": [
+        "Não desativar proteção térmica da ventoinha."
+      ],
+      "pass_conditions": "Pontes horizontais sem fios soltos caídos.",
+      "status": "verified_workflow"
+    },
+    {
+      "id": "T07",
+      "name": "Teste de balanço (Overhang)",
+      "technology": "FDM",
+      "objective": "Verificar ângulo máximo imprimível sem suporte (45° a 70°).",
+      "procedure_steps": [
+        "Fatiar modelo de balanço progressivo.",
+        "Identificar o ângulo em que a superfície inferior começa a enrolar."
+      ],
+      "contraindications": [
+        "Não utilizar resfriamento excessivo se a peça exigir alta resistência mecânica."
+      ],
+      "pass_conditions": "Identificação exata do limite para configurar o Threshold Angle de suportes.",
+      "status": "verified_workflow"
+    },
+    {
+      "id": "T08",
+      "name": "Tolerância e folga dimensional XY",
+      "technology": "FDM",
+      "objective": "Aferir folgas de montagem em pinos e furos (0.1mm a 0.4mm).",
+      "procedure_steps": [
+        "Imprimir cupom de pinos com folgas progressivas.",
+        "Testar quais pinos giram livremente sem folga excessiva."
+      ],
+      "contraindications": [
+        "Não aplicar escala arbitrária antes de testar a contração do filamento."
+      ],
+      "pass_conditions": "Encaixe perfeito na tolerância desejada.",
+      "status": "verified_workflow"
+    },
+    {
+      "id": "T09",
+      "name": "Otimização de costura (Seam)",
+      "technology": "FDM",
+      "objective": "Testar estratégia de costura (Aligned vs Scarf Seam) em cilindro de teste.",
+      "procedure_steps": [
+        "Fatiar cilindro de 30mm com Scarf Joint Seam ativado.",
+        "Comparar textura visual com costura clássica alinhada."
+      ],
+      "contraindications": [
+        "Scarf seam requer Bambu Studio v1.9 ou superior."
+      ],
+      "pass_conditions": "Transição suave e imperceptível ao tato.",
+      "status": "verified_workflow"
+    },
+    {
+      "id": "T10",
+      "name": "Retração e secagem de filamento",
+      "technology": "FDM",
+      "objective": "Eliminar teias sem gerar entupimento por retração excessiva.",
+      "procedure_steps": [
+        "Secar o filamento por 6 horas antes de alterar parâmetros de retração.",
+        "Imprimir dois postes finos de teste com retração de 0.8mm."
+      ],
+      "contraindications": [
+        "Não aumentar retração acima de 1.5mm em impressoras direct drive."
+      ],
+      "pass_conditions": "Postes limpos sem fios entre eles.",
+      "status": "verified_workflow"
+    },
+    {
+      "id": "T11",
+      "name": "Validação de interface de suporte",
+      "technology": "FDM",
+      "objective": "Validar descolamento do suporte e textura da face apoiada.",
+      "procedure_steps": [
+        "Imprimir peça teste com balanço de 90° e suporte ativado.",
+        "Remover o suporte manualmente e inspecionar integridade superficial."
+      ],
+      "contraindications": [
+        "Não usar alicate ou força bruta que danifique a peça."
+      ],
+      "pass_conditions": "Suporte sai com facilidade sem deixar pedaços fundidos.",
+      "status": "verified_workflow"
+    },
+    {
+      "id": "T12",
+      "name": "Inspeção cinemática segura",
+      "technology": "FDM",
+      "objective": "Checar movimento suave dos eixos sem energia elétrica para detectar pontos duros.",
+      "procedure_steps": [
+        "Desligar a impressora na chave geral.",
+        "Mover a cabeça de impressão e mesa manualmente de forma suave e lenta.",
+        "Sentir se há atrito excessivo, folga ou resíduo de correia."
+      ],
+      "contraindications": [
+        "NUNCA movimentar rapidamente os eixos (gera corrente reversa nos drivers).",
+        "NUNCA mexer em fiações com a máquina ligada na tomada."
+      ],
+      "pass_conditions": "Movimentação fluida e sem ruídos anormais.",
+      "status": "verified_workflow"
+    },
+    {
+      "id": "T13",
+      "name": "Teste de matriz de exposição SLA",
+      "technology": "SLA/MSLA",
+      "objective": "Definir tempo de cura exato por camada em milissegundos para resina UV.",
+      "procedure_steps": [
+        "Imprimir matriz de validação tipo RERF ou Cones de Calibração.",
+        "Avaliar cones conectados no lado de sucesso e desconectados no lado de falha."
+      ],
+      "contraindications": [
+        "Utilizar óculos de proteção UV, máscara respiratória e luvas de nitrila."
+      ],
+      "pass_conditions": "Cones de teste perfeitamente formados conforme padrão da resina.",
+      "status": "verified_workflow"
+    },
+    {
+      "id": "T14",
+      "name": "Teste de escoamento e drenagem SLA",
+      "technology": "SLA/MSLA",
+      "objective": "Garantir ausência de cavidades herméticas que quebrem o modelo durante o descolamento.",
+      "procedure_steps": [
+        "Verificar no fatiador o corte em camadas procurando cavidades vazadas.",
+        "Confirmar que furos de pelo menos 2mm estão no ponto mais próximo do prato."
+      ],
+      "contraindications": [
+        "Não imprimir modelos ocos sem furos de escape."
+      ],
+      "pass_conditions": "Zero efeito de sucção e drenagem limpa.",
+      "status": "verified_workflow"
+    }
+  ],
+  "kb_articles": [
+    {
+      "id": "A01",
+      "title": "Primeira camada e adesão mecânica",
+      "body": "A primeira camada é a fundação mecânica de toda a impressão. Antes de alterar qualquer parâmetro no Bambu Studio, confirme se o tipo de placa selecionado corresponde rigorosamente à placa física em uso. A causa número um de descolamento é gordura invisível deixada pelos dedos; lavar a placa com detergente neutro e água morna resolve mais de 70% dos casos de warping em PLA e PETG.",
+      "technology": "FDM",
+      "tags": [
+        "primeira-camada",
+        "adesao",
+        "limpeza",
+        "warping"
+      ],
+      "source_ids": [
+        "src-origin",
+        "src-bambu-wiki"
+      ],
+      "revision_state": "verified"
+    },
+    {
+      "id": "A02",
+      "title": "Diagnóstico metódico de stringing",
+      "body": "Stringing (fios e teias de aranha) ocorre quando o plástico líquido vaza do bico durante viagens sem extrusão. Embora muitos usuários tentem resolver aumentando a distância de retração, em extrusores Direct Drive como os da Bambu Lab retrações acima de 1.5mm causam entupimento térmico. A causa mais comum é umidade absorvida pelo filamento gerando vapor na câmara de fusão.",
+      "technology": "FDM",
+      "tags": [
+        "stringing",
+        "teias",
+        "umidade",
+        "retracao"
+      ],
+      "source_ids": [
+        "src-origin",
+        "src-ellis"
+      ],
+      "revision_state": "verified"
+    },
+    {
+      "id": "A03",
+      "title": "Uso seguro e verificação de parâmetros do Bambu Studio",
+      "body": "Parâmetros de fatiamento dependem da versão instalada do Bambu Studio e do modelo da impressora. Uma chave encontrada em arquivo de perfil não garante que esteja exposta na interface em modo Básico ou que seja suportada por todas as máquinas. O PrintMaster 3D apenas sugere caminhos de menus verificados para evitar confusão.",
+      "technology": "FDM",
+      "tags": [
+        "bambu-studio",
+        "versao",
+        "menus",
+        "seguranca"
+      ],
+      "source_ids": [
+        "src-bambu-config",
+        "src-bambu-readme"
+      ],
+      "revision_state": "verified"
+    },
+    {
+      "id": "A04",
+      "title": "O que significa vazão volumétrica máxima (Max Volumetric Speed)",
+      "body": "A vazão volumétrica expressa a quantidade de plástico (em milímetros cúbicos por segundo) que o hotend consegue fundir de forma homogênea. É a variável que define a velocidade real da impressora: mesmo que você configure 300 mm/s, o slicer reduzirá a velocidade automaticamente caso a vazão calculada (largura × altura × velocidade) exceda o limite do material.",
+      "technology": "FDM",
+      "tags": [
+        "vazao-volumetrica",
+        "velocidade",
+        "hotend",
+        "mvs"
+      ],
+      "source_ids": [
+        "src-origin",
+        "src-bambu-wiki"
+      ],
+      "revision_state": "verified"
+    },
+    {
+      "id": "A05",
+      "title": "Orientação de peças funcionais e anisotropia",
+      "body": "Peças impressas por FDM são naturalmente anisotrópicas: a resistência entre camadas (eixo Z) é significativamente menor do que a tração no plano das camadas (XY). Se a peça sofrer esforços de flexão ou cisalhamento, posicione o modelo de forma que as linhas de extrusão recebam a carga longitudinalmente.",
+      "technology": "FDM",
+      "tags": [
+        "orientacao",
+        "resistencia",
+        "anisotropia",
+        "engenharia"
+      ],
+      "source_ids": [
+        "src-origin"
+      ],
+      "revision_state": "verified"
+    },
+    {
+      "id": "A06",
+      "title": "Quando usar suportes e escolha entre Normal e Tree",
+      "body": "Balanços de até 45° a 50° geralmente não necessitam de suporte. Para estátuas, miniaturas e peças com curvas orgânicas, o suporte tipo Tree (Árvore) economiza até 60% de material e é fácil de destacar. Já para superfícies planas horizontais (pontes longas e encaixes mecânicos retos), o suporte Normal oferece melhor apoio geométrico.",
+      "technology": "FDM",
+      "tags": [
+        "suporte",
+        "tree-support",
+        "acabamento"
+      ],
+      "source_ids": [
+        "src-origin",
+        "src-bambu-wiki"
+      ],
+      "revision_state": "verified"
+    },
+    {
+      "id": "A07",
+      "title": "Como identificar uma causa confirmada",
+      "body": "Uma hipótese técnica nunca é uma verdade absoluta até que seja validada por um teste discriminativo reversível. Mudar cinco parâmetros ao mesmo tempo impede saber qual surtiu efeito. O método correto é formular 2 a 4 hipóteses concorrentes, executar o teste de menor risco e registrar evidência antes/depois.",
+      "technology": "FDM",
+      "tags": [
+        "metodologia",
+        "diagnostico",
+        "teste",
+        "evidencia"
+      ],
+      "source_ids": [
+        "src-origin"
+      ],
+      "revision_state": "verified"
+    },
+    {
+      "id": "A08",
+      "title": "Segurança rigorosa em falhas térmicas e elétricas",
+      "body": "Cheiro de queimado, fumaça, erro de Thermal Runaway ou ruído de faísca elétrica são emergências que exigem corte imediato de energia. Jamais tente contornar proteções de software, desativar sensores térmicos ou soldar cabos de aquecedores sem peças originais homologadas pelo fabricante.",
+      "technology": "FDM",
+      "tags": [
+        "seguranca",
+        "eletrica",
+        "fogo",
+        "urgencia"
+      ],
+      "source_ids": [
+        "src-origin"
+      ],
+      "revision_state": "verified"
+    },
+    {
+      "id": "A09",
+      "title": "Uso seguro de arquivos 3MF e integridade de projetos",
+      "body": "O formato 3MF é um arquivo compactado (ZIP) contendo geometria, metadados e, no caso do Bambu Studio, perfis de fatiamento. Abrir um 3MF de terceiros pode alterar seus perfis locais. Trate arquivos externos como dados não confiáveis e confira sempre as configurações antes de enviar à impressora.",
+      "technology": "FDM",
+      "tags": [
+        "3mf",
+        "projetos",
+        "seguranca-arquivos"
+      ],
+      "source_ids": [
+        "src-origin",
+        "src-bambu-wiki"
+      ],
+      "revision_state": "verified"
+    }
+  ],
+  "version": "3.0.0"
+}
